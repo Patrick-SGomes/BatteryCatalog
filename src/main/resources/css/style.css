@@ -1,0 +1,22 @@
+.anchorPane-color {
+    -fx-background-color: #ecececff;
+}
+.table-tittle-color {
+    -fx-background-color: #2c5aa0ff;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+.table-row-color {
+    -fx-background-color: #FFFFFF;
+    
+}
+.button {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10px;
+    -fx-transition-duration: 0.2s;
+    -fx-transition-timing-function: ease-out;
+}
+
+.button:hover {
+    -fx-background-color: #DDD;
+}

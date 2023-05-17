@@ -1,0 +1,40 @@
+Agrale
+Aston Martin
+Audi
+BMW
+BYD
+CAOS Chery
+Chevrolet
+Citroën
+Effa
+Ferrari
+Fiat
+Ford
+Foton
+Honda
+Hyundai
+Iveco
+JAC
+Jaguar
+Jeep
+Kia
+Lamborghini
+Land Rover
+Lexus
+Maserati
+McLaren
+Mercedes-AMG
+Mercedes_Benz
+Mini
+Mitsubishi
+Nissan
+Peugeot
+Porsche
+RAM
+Renault
+Rolls-Royce
+Subaru
+Suzuki
+Toyota
+Volkswagen
+Volvo

@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact name="BatteryCatalog:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BatteryCatalog_jar</output-path>
+    <root id="root">
+      <element id="archive" name="BatteryCatalog.jar">
+        <element id="module-output" name="BatteryCatalog" />
+      </element>
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:linux:17.0.2" />
+      <element id="library" level="project" name="Maven: io.github.palexdev:virtualizedfx:11.9.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:linux:17.0.2" />
+      <element id="library" level="project" name="Maven: io.github.palexdev:mfxcore:11.3.0" />
+      <element id="library" level="project" name="Maven: io.github.palexdev:mfxeffects:11.0.5" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:linux:17.0.2" />
+      <element id="library" level="project" name="Maven: io.github.palexdev:mfxresources:11.3.2" />
+      <element id="library" level="project" name="Maven: io.github.palexdev:materialfx:11.16.1" />
+      <element id="library" level="application" name="lib" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:linux:17.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:17.0.2" />
+      <element id="library" level="project" name="Maven: io.github.palexdev:mfxlocalization:11.1.0" />
+    </root>
+  </artifact>
+</component>
