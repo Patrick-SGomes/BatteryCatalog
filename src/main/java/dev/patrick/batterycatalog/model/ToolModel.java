@@ -37,7 +37,7 @@ public class ToolModel {
     public void setImage(String image) {
         this.image = image;
     }
-
+    @Override
     public String toString() {
         return nome;
     }
