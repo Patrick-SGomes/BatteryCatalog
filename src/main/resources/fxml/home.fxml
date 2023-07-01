@@ -184,6 +184,7 @@
           <Menu mnemonicParsing="false" text="Cadastro">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#cadVeiculo" text="Cadastrar Veículo" />
+                  <MenuItem mnemonicParsing="false" onAction="#cadFerramenta" text="Cadastro de Ferramentas" />
             </items>
           </Menu>
         </menus>

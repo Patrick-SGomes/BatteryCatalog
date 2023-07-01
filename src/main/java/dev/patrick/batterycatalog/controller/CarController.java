@@ -68,6 +68,7 @@ public class CarController implements Initializable {
             alert.setHeaderText("Você está prestes a excluir o veículo " + selecionado.getModelo());
             alert.setContentText("Deseja prosseguir com esta ação?");
             alert.showAndWait().ifPresent(e -> {
+                if (e == btnSim)
                 try {
                     VeiculoDAO.excluir(selecionado);
                     reloadTable();

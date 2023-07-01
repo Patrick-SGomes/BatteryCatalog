@@ -19,36 +19,40 @@ import java.util.ResourceBundle;
 
 public class appController implements Initializable {
 
-    @FXML
-    private AnchorPane anchorPane;
-    @FXML
-    private TextField txtFiltro;
-    @FXML
-    private ScrollPane scPane;
-    @FXML
-    private ListView<VeiculoModel> lvVeiculos;
-    @FXML
-    private Label lblAH;
-    @FXML
-    private Label lblBatteryCode;
-    @FXML
-    private Label lblCCA;
-    @FXML
-    private Label lblCarModel;
-    @FXML
-    private Label lblDimension;
-    @FXML
-    private Label lblPolarity;
-    @FXML
-    private Label lblTecnologyTipe;
-    @FXML
-    private ListView<?> listTools;
+    @FXML private AnchorPane anchorPane;
+    @FXML private TextField txtFiltro;
+    @FXML private ScrollPane scPane;
+    @FXML private ListView<VeiculoModel> lvVeiculos;
+    @FXML private Label lblAH;
+    @FXML private Label lblBatteryCode;
+    @FXML private Label lblCCA;
+    @FXML private Label lblCarModel;
+    @FXML private Label lblDimension;
+    @FXML private Label lblPolarity;
+    @FXML private Label lblTecnologyTipe;
+    @FXML private ListView<?> listTools;
     VeiculoModel vm;
 
     @FXML
     void cadVeiculo() throws IOException {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addCar.fxml"));
+        Parent parent = loader.load();
+
+        Scene scene = new Scene(parent);
+        stage.setResizable(false);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.setOnCloseRequest(windowEvent -> {
+            atualizaGrade();
+        });
+        stage.show();
+    }
+
+    @FXML
+    void cadFerramenta() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addTool.fxml"));
         Parent parent = loader.load();
 
         Scene scene = new Scene(parent);

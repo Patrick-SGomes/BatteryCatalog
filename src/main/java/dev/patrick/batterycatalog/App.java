@@ -13,6 +13,7 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/home.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),780, 500);
         stage.setTitle("Catálogo de Baterias");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

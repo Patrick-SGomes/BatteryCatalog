@@ -8,14 +8,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class ToolDAO {
-    private static void salvar(ToolModel tm) throws Exception {
+    public static void salvar(ToolModel tm) throws Exception {
         if (tm.getId() == 0)
             inserir(tm);
         else
             alterar(tm);
     }
 
-    private static void inserir(ToolModel tm) throws Exception {
+    public static void inserir(ToolModel tm) throws Exception {
         Conexao c = new Conexao();
         String sql = "INSERT INTO ferramenta (nome, tamanho, imagem) VALUES (?,?,?)";
         PreparedStatement pst = c.getConexao().prepareStatement(sql);
@@ -26,7 +26,7 @@ public class ToolDAO {
         c.close();
     }
 
-    private static void alterar(ToolModel tm) throws Exception {
+    public static void alterar(ToolModel tm) throws Exception {
         Conexao c = new Conexao();
         String sql = "UPDATE ferramenta SET nome=?, tamanho=?, imagem=? WHERE id=?";
         PreparedStatement pst = c.getConexao().prepareStatement(sql);
@@ -38,7 +38,7 @@ public class ToolDAO {
         c.close();
     }
 
-    private static void excluir(ToolModel toolModel) throws Exception {
+    public static void excluir(ToolModel toolModel) throws Exception {
         Conexao c = new Conexao();
         String sql = " DELETE FROM ferramenta WHERE id=?";
         PreparedStatement pst = c.getConexao().prepareStatement(sql);
@@ -47,7 +47,7 @@ public class ToolDAO {
         c.close();
     }
 
-    private static ObservableList<ToolModel> listar(String filtro) throws Exception {
+    public static ObservableList<ToolModel> listar(String filtro) throws Exception {
         Conexao c = new Conexao();
         String sql = "SELECT * FROM ferramenta WHERE nome LIKE ? ORDER BY nome";
         PreparedStatement pst = c.getConexao().prepareStatement(sql);
@@ -66,7 +66,7 @@ public class ToolDAO {
         return listarFerramentas;
     }
 
-    private static ToolModel recuperar(int codigo) throws Exception {
+    public static ToolModel recuperar(int codigo) throws Exception {
         Conexao c = new Conexao();
         String sql = "SELECT * FROM ferramenta WHERE id=?";
         PreparedStatement pst = c.getConexao().prepareStatement(sql);
