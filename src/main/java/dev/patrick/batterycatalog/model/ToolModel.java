@@ -6,6 +6,10 @@ public class ToolModel {
     private String tamanho;
     private String image;
 
+    public ToolModel() {
+        this.id = 0;
+    }
+
     public int getId() {
         return id;
     }
@@ -40,5 +44,16 @@ public class ToolModel {
     @Override
     public String toString() {
         return nome;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof ToolModel) {
+            ToolModel c = (ToolModel) o;
+            if (c.getId() == this.getId()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -36,6 +36,7 @@ public class CarController implements Initializable {
         vm = tblVeiculos.getSelectionModel().getSelectedItem();
         this.vm = VeiculoDAO.recuperar(vm.getId());
 
+        System.out.println(vm.getId());
         txtModelo.setText(vm.getModelo());
         spAno.getEditor().setText(String.valueOf(vm.getAno()));
         cbMarca.getSelectionModel().select(vm.getMarca());

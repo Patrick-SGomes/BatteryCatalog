@@ -9,10 +9,11 @@ import java.sql.ResultSet;
 
 public class ToolDAO {
     public static void salvar(ToolModel tm) throws Exception {
-        if (tm.getId() == 0)
+        if (tm.getId() == 0) {
             inserir(tm);
-        else
+        } else {
             alterar(tm);
+        }
     }
 
     public static void inserir(ToolModel tm) throws Exception {

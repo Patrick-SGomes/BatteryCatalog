@@ -6,9 +6,7 @@ import dev.patrick.batterycatalog.util.CustomAlert;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -19,32 +17,57 @@ import java.util.ResourceBundle;
 public class ToolController implements Initializable {
 
 
-    @FXML private TableColumn<?, ?> columnNome;
-    @FXML private TableColumn<?, ?> columnTam;
+    @FXML private TableColumn columnNome;
+    @FXML private TableColumn columnTam;
     @FXML private TableView<ToolModel> tblTool;
     @FXML private TextField txtNome;
     @FXML private TextField txtTamanho;
-    ToolModel tm;
+    ToolModel tm = new ToolModel();
     @FXML
-    void actionEditar(ActionEvent event) {
+    void actionEditar() throws Exception {
+        tm = tblTool.getSelectionModel().getSelectedItem();
+        this.tm = ToolDAO.recuperar(tm.getId());
 
+        txtNome.setText(tm.getNome());
+        txtTamanho.setText(tm.getTamanho());
     }
 
     @FXML
-    void actionExcluir(ActionEvent event) {
+    void actionExcluir() {
+        ToolModel selecionado = tblTool.getSelectionModel().getSelectedItem();
+        if (selecionado == null) {
+            CustomAlert.alert("Null", "Ação nula", "Para prosseguir, selecione uma ferramenta na tabela.");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            ButtonType btnSim = new ButtonType("sim");
+            ButtonType btnCancelar = new ButtonType("Cancelar");
+            alert.getButtonTypes().setAll(btnSim, btnCancelar);
 
+            alert.setTitle("Cuidado!");
+            alert.setHeaderText("Você está prestes a excluir a ferramenta " + selecionado.getNome());
+            alert.setContentText("Deseja prosseguir com esta ação?");
+            alert.showAndWait().ifPresent(e -> {
+                if (e == btnSim) {
+                    try {
+                        ToolDAO.excluir(selecionado);
+                        reloadTable();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            });
+        }
     }
 
     @FXML
     void actionSalvar(ActionEvent event) throws Exception {
-        tm = new ToolModel();
         tm.setNome(txtNome.getText());
         tm.setTamanho(txtTamanho.getText());
 
         ToolDAO.salvar(tm);
 
         CustomAlert.alert("Successful", "Operação concluída", "Veículo " + tm.getNome() + " salvo com sucesso.");
-        close();
+        reloadTable();
     }
 
     private void close() {
