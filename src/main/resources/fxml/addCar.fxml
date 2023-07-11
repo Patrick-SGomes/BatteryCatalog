@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="429.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.patrick.batterycatalog.controller.CarController">
+<AnchorPane prefHeight="429.0" prefWidth="620.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="dev.patrick.batterycatalog.controller.CarController">
    <children>
       <TextField fx:id="txtModelo" layoutX="23.0" layoutY="46.0" prefHeight="24.0" prefWidth="358.0" />
       <TableView fx:id="tblVeiculos" focusTraversable="false" layoutX="26.0" layoutY="198.0" prefHeight="217.0" prefWidth="564.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="30.0">

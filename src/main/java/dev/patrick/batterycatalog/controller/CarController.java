@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class CarController implements Initializable {
 
-    VeiculoModel vm;
+    VeiculoModel vm = new VeiculoModel();
     @FXML private TextField txtModelo;
     @FXML private Spinner<Integer> spAno;
     @FXML private ComboBox<String> cbMarca, cbTecnologia;
@@ -44,7 +44,6 @@ public class CarController implements Initializable {
     }
     @FXML
     private void salvar() throws Exception {
-        vm = new VeiculoModel();
         vm.setModelo(txtModelo.getText());
         vm.setMarca(String.valueOf(cbMarca.getSelectionModel().getSelectedItem()));
         vm.setAno(Integer.parseInt(spAno.getEditor().getText()));
@@ -52,7 +51,7 @@ public class CarController implements Initializable {
 
         VeiculoDAO.salvar(vm);
         CustomAlert.alert("Successful", "Operação concluída", "Veículo " + vm.getModelo() + " salvo com sucesso.");
-        close();
+        reloadTable();
     }
 
     @FXML void excluir() {
@@ -97,6 +96,10 @@ public class CarController implements Initializable {
     private void reloadTable() {
         try {
             tblVeiculos.setItems(VeiculoDAO.listar(""));
+            txtModelo.setText("");
+            cbMarca.getItems().clear();
+            cbTecnologia.getSelectionModel().isSelected(0);
+            spAno.getEditor().setText("");
         } catch (Exception e) {
             e.printStackTrace();
         }
